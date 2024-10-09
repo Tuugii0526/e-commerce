@@ -6,15 +6,35 @@ const port =8888
 const app=express()
 app.use(express.json())
 const sql=neon(`${process.env.DATABASE_URL}`)
-app.get('/',async(req,res)=>{
-    try {
-        const data= await sql`SELECT * FROM product_one`
-        res.json({data})
-    } catch (error) {
-        
+app.get('/',(req,res)=>{
+    res.json({
+        greeting:"Hello chapa"
     }
+    )
 })
-app.listen(port,()=>{
-    console.log(`server started working at : http://localhost:${port}`)
+app.get('/products',async(req,res)=>{
+    let products
+   try {
+    products=await sql`SELECT * 
+        FROM products ORDER BY name ASC`
+   } catch (error) {
+    res.send([])
+   }
+   res.send(products)
 })
+app.get('/products/:id',async (req,res)=>{
+    const id=req.params.id
+    let product
+    try {
+        product=await sql`SELECT * FROM products 
+        WHERE id=${id}`
+    } catch (error) {
+        res.send([])
+    }
+    res.send(product)
+})
+app.post('cart')
 
+    app.listen(port,()=>{
+        console.log(`server started working at : http://localhost:${port}`)
+    })
