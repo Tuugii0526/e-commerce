@@ -7,9 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: 'static.zara.net',
-        search:'**',
-        pathname: '/assets/public/**'
+        hostname: '**'
       },
     ],
   }

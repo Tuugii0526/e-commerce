@@ -4,7 +4,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
       >
-        <div className="w-full min-w-[240px] max-w-[1200px]">
+        <div className="w-full min-w-[240px] max-w-[1200px] m-auto">
         {children}
         </div>
       </body>
