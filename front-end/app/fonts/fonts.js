@@ -1,2 +1,2 @@
-import {Sixtyfour} from 'next/font/google'
-export const sixtyFour=Sixtyfour({subsets:['latin']})
+import {Roboto_Mono} from 'next/font/google'
+export const roboto_mono=Roboto_Mono({subsets:['latin']})
