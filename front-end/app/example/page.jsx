@@ -1,37 +1,24 @@
 "use client";
-
-import { Dialog, Transition, TransitionChild } from "@headlessui/react";
+import {Dialog,DialogPanel } from "@headlessui/react";
 import { useState } from "react";
 import clsx from "clsx";
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="relative">
-      <button
-        className="btn"
-        onClick={() => {
-          setIsOpen((preState) => !preState);
-        }}
-      >
-        {isOpen ? "Disappear" : "Appear"}
-      </button>
-      <Transition show={isOpen}>
-        <div className={
-            clsx([
-                'appear:true',
-                //Base styles
-                'absolute w-48 border transition ease-in-out',
-                //Shared closed styles
-                'data-[closed]:opacity-0',
-                //Entering styles
-                'data-[enter]:duration-1000 data-[enter]:data-[closed]:-translate-x-full',
-                //Leaving styles
-                'data-[leave]:duration-300 data-[leave]:data-[closed]:translate-x-full',
-            ])
-        }>
-          I will fade in and out
+    <>
+     <button onClick={()=>{setIsOpen(true)}} className="btn">Open dialog</button>
+     <Dialog open={isOpen} onClose={()=>{setIsOpen(false)}} className="relative z-50">
+        <div className="fixed inset-0 w-screen flex items-center justify-center p-4 bg-white">
+          <DialogPanel className="max-w-lg space-y-4 border bg-white p-12">
+            <p>Hi</p>
+            <button className="btn" onClick={()=>{
+              setIsOpen(!isOpen)
+            }}>
+              close cart
+            </button>
+          </DialogPanel>
         </div>
-      </Transition>
-    </div>
-  );
+     </Dialog>
+    </>
+  )
 }
