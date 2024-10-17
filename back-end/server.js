@@ -33,8 +33,8 @@ app.get('/products/:id',async (req,res)=>{
     }
     res.send(product)
 })
-app.post('cart')
-
-    app.listen(port,()=>{
+app.post('/cart')
+app.listen(port,()=>{
         console.log(`server started working at : http://localhost:${port}`)
+    
     })
