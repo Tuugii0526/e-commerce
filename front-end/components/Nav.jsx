@@ -1,6 +1,5 @@
 "use client";
 
-<<<<<<< HEAD
 import { londrinaSketch } from "../app/fonts"; 
 import Link from "next/link";
 import {  useState } from "react";
@@ -24,33 +23,6 @@ export const Nav = () => {
       </Link>
       <CartTransition isCartOpen={isCartOpen} setIsCartOpen={setIsCartOpen}/>
       <ProfileTransition isProfileOpen={isProfileOpen } setIsProfileOpen={setIsProfileOpen} />
-=======
-import {Dialog,DialogPanel,Transition} from '@headlessui/react'
-import  {ShoppingCartIcon}  from '@heroicons/react/24/outline';
-import {Fragment,useEffect,useRef,useState} from 'react'
-export const Nav=()=>{
-    const [isOpen,setIsOpen]=useState(false)
-    const openCart=()=>{
-        setIsOpen(true)
-    }
-    const closeCart=()=>{
-        setIsOpen(false)
-    }
-
-    return  <div className="w-full h-[100px] flex justify-around items-center">
-    <p>Chapa</p>
-    <button aria-label="Open cart" onClick={openCart}>
-    <ShoppingCartIcon className="h-5"/>
-    </button>
-    <Transition show={isOpen}>
-        <Dialog onClose={closeCart}>
-            <p>HI</p>
-            <DialogPanel>
-                <button onClick={closeCart}>Close</button>
-            </DialogPanel>
-        </Dialog>
-    </Transition>
->>>>>>> 619de96d4e891b29bc6b5be7c3059ef6dec73dfc
     </div>
-  );
+  )
 };
