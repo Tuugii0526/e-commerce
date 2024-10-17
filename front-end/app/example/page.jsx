@@ -3,6 +3,7 @@
 import { Dialog, Transition, TransitionChild } from "@headlessui/react";
 import { useState } from "react";
 import clsx from "clsx";
+import { cookies } from "next/headers";
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
   return (
